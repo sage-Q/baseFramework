@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="mavenProject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/mavenProject_jar</output-path>
+    <root id="root">
+      <element id="archive" name="mavenProject.jar">
+        <element id="module-output" name="baseFramework" />
+      </element>
+    </root>
+  </artifact>
+</component>

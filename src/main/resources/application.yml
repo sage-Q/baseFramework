@@ -1,0 +1,23 @@
+server:
+  port: 8080 #项目端口号
+  servlet:
+    context-path: /baseFramework
+
+spring:
+  profiles:
+    active: dataSource #数据源配置文件
+  http:
+    encoding: #接口字符集编码
+      charset: UTF-8
+      force: true
+
+#mybatis:
+  #mapper-locations: classpath:mybatis/**/*Mapper.xml
+
+#showSql
+logging:
+  level:
+    com:
+      gsgy:
+        dao: debug
+        #controller: error

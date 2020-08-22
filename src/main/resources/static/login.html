@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>身份系统登录</title>
+</head>
+<body>
+<img src="/mavenProject/images/title.jpg" width="200">
+<div>用户验证登录</div>
+用户名：<input id="username" type="text"/><br/>
+密码：<input id="password" type="password"/>
+<button onclick="submitForm()" type="button">登录</button>
+</body>
+<script type="text/javascript">
+    function submitForm() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let url = "/mavenProject/sysLogin?username="+username+"&password="+password;
+        let xmlhttp = getXMLHttpRequestObject(url);
+        //设置监听函数，若为true时，在事件中的就绪状态时执行函数
+        xmlhttp.onreadystatechange = function () {
+            //判断请求是否成功，每当readyState属性改变时，就会调用该函数
+            //readyState的状态：0（请求未初始化）、1（服务器连接已建立）、2（请求已接收）、3（请求处理中）、4（请求已完成，且响应已就绪）
+            //status的状态：200（ok），404（未找到页面）
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //获取服务器的响应，通过
+                //responseText：获取字符串形式的响应数据
+                //responseXML：获取XML形式的响应数据
+                console.log(xmlhttp.responseText);
+            }
+        }
+    }
+
+    function getXMLHttpRequestObject(url) {
+        //创建XMLHttpRequest对象
+        let xmlhttp;
+        //为了应对所有现代浏览器，检查是否支持XMLHttpRequst，若支持则创建XMLHttpRequest对象，若不支持，则创建ActiveXObject对象
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //规定请求的类型、URL、是否异步请求
+        xmlhttp.open('post', url, true);
+        //添加请求头必须在open打开之后，send之前
+        //想请求添加Http请求头
+        xmlhttp.setRequestHeader("Context-type", "application/x-www-form-urlencoded");
+        //将请求发送到服务器
+        xmlhttp.send();
+
+        return xmlhttp;
+    }
+
+</script>
+</html>

@@ -1,0 +1,14 @@
+gsgy_gahlxt:
+  username: gsgy_gahlxt
+  password: gsgy_gahlxt
+  url: jdbc:mysql://39.104.104.226:3306/gsgy_gahlxt?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+  driver-class-name: com.mysql.jdbc.Driver
+  type: mysql
+  filters: stat,wall,log4j
+ggzzsbpt:
+  username: ggzzsbpt
+  password: ggzzsbpt
+  url: jdbc:mysql://39.104.104.226:3306/ggzzsbpt?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+  driver-class-name: com.mysql.jdbc.Driver
+  type: mysql
+  filters: stat,wall,log4j
